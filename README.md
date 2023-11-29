@@ -66,7 +66,7 @@ from RLC.capture_chess.learn import Q_learning
 from RLC.capture_chess.agent import Agent
 
 board = Board()
-agent = Agent(network='conv',gamma=0.1,lr=0.07)
+agent = Agent(network='conv',gamma=0.1,learning_rate=0.07)
 R = Q_learning(agent,board)
 pgn = R.learn(iters=750)
 ```
@@ -80,7 +80,7 @@ from RLC.capture_chess.learn import Reinforce
 from RLC.capture_chess.agent import Agent, policy_gradient_loss
 
 board = Board()
-agent = Agent(network='conv_pg',lr=0.3)
+agent = Agent(network='conv_pg',learning_rate=0.3)
 R = Reinforce(agent,board)
 pgn = R.learn(iters=3000)
 
@@ -96,9 +96,9 @@ from RLC.capture_chess.learn import ActorCritic
 from RLC.capture_chess.agent import Agent
 
 board = Board()
-critic = Agent(network='conv',lr=0.1)
+critic = Agent(network='conv',learning_rate=0.1)
 critic.fix_model()
-actor = Agent(network='conv_pg',lr=0.3)
+actor = Agent(network='conv_pg',learning_rate=0.3)
 R = ActorCritic(actor, critic,board)
 pgn = R.learn(iters=1000)
 

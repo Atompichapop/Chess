@@ -40,8 +40,8 @@ class GreedyAgent(object):
 
 class Agent(object):
 
-    def __init__(self, lr=0.003, network='big'):
-        self.optimizer = RMSprop(lr=lr)
+    def __init__(self, learning_rate=0.003, network='big'):
+        self.optimizer = RMSprop(learning_rate=learning_rate)
         self.model = Model()
         self.proportional_error = False
         if network == 'simple':
